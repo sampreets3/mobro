@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+
+<robot name="mobile_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="materials.xacro"/>
+
+    <link name="world" />
+    
+    <joint name="base_footprint" type="fixed">
+        <parent link="world" />
+        <child link="base_chassis" />
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.075" />
+    </joint>
+    
+    <link name="base_chassis">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="10.0"/>
+            <inertia ixx="0.04167" ixy="0.0" ixz="0.0" iyy="0.0833" iyz="0.0" izz="0.10833"/>
+        </inertial>
+        
+  	    <visual>
+            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+            <geometry>
+                <box size="0.2 0.3 0.1" />
+            </geometry>
+            <material name="yellow" />
+  	    </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.2 0.3 0.1" />
+            </geometry>
+        </collision>
+    </link>
+    
+    <joint name="joint_left_drive_wheel" type="continuous">
+        <parent link="base_chassis" />
+        <child  link="left_drive_wheel" />
+        <origin rpy="0.0 0.0 0.0" xyz="0.1125 0.075 -0.025" />
+        <axis xyz="1.0 0.0 0.0" />
+    </joint>
+    
+    <link name="left_drive_wheel">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0"/>
+            <mass value="0.5" />
+            <inertia ixx="0.000338542" ixy="0.0" ixz="0.0" iyy="0.000338542" iyz="0.0" izz="0.000625"/>
+        </inertial>
+
+        <visual>
+            <origin rpy="0.0 -1.57 0.0" xyz="0.0 0.0 0.0" />
+            <geometry>
+                <cylinder radius="0.05" length="0.025" />
+            </geometry>
+            <material name="black" />
+	    </visual>
+
+        <collision>
+            <origin xyz="0.0 -1.57 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.025" />
+            </geometry>
+        </collision>
+    </link>
+    
+    <joint name="joint_right_drive_wheel" type="continuous">
+        <parent link="base_chassis" />
+        <child  link="right_drive_wheel" />
+        <origin rpy="0.0 0.0 0.0" xyz="-0.1125 0.075 -0.025" />
+        <axis xyz="1.0 0.0 0.0" />
+    </joint>
+
+    <link name="right_drive_wheel">
+        <inertial>
+            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+            <mass value="0.5" />
+            <inertia ixx="0.000338542" ixy="0.0" ixz="0.0" iyy="0.000338542" iyz="0.0" izz="0.000625"/>
+        </inertial>
+
+	    <visual>
+            <origin rpy="0.0 1.57 0.0" xyz="0.0 0.0 0.0" />
+            <geometry>
+                <cylinder radius="0.05" length="0.025" />
+            </geometry>
+            <material name="black" />
+	    </visual>
+
+        <collision>
+            <origin xyz="0.0 1.57 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.025" />
+            </geometry>
+        </collision>
+    </link>
+    
+    <joint name="base_to_caster_right" type="fixed" >
+        <parent link="base_chassis" />
+        <child  link="caster_right" />
+        <origin rpy="0.0 0.0 0.0" xyz="0.06 -0.1 -0.05" />
+    </joint>
+    
+    <link name="caster_right" >
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.4"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0001"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <sphere radius="0.025" />
+            </geometry>
+            <material name="black" />
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <sphere radius="0.025" />
+            </geometry>
+            <material name="black" />
+        </collision>
+    </link>
+    
+    <joint name="base_to_caster_left" type="fixed" >
+        <parent link="base_chassis" />
+        <child  link="caster_left" />
+        <origin rpy="0.0 0.0 0.0" xyz="-0.06 -0.1 -0.05" />
+    </joint>
+    
+    <link name="caster_left" >
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.4"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0001"/>
+        </inertial>
+        
+	    <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <sphere radius="0.025" />
+            </geometry>
+            <material name="black" />
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <sphere radius="0.025" />
+            </geometry>
+            <material name="black" />
+        </collision>
+    </link>
+
+    <xacro:include filename="gazebo_control.xacro" />
+</robot>
