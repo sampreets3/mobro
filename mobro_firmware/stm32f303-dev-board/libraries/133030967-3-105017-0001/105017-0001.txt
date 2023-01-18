@@ -1,0 +1,13 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"90-06062020-057442";"";
+"REFERENCE";"105017-0001";"";
+"TraceParts.PartTitle";"Micro-USB B Receptacle SMT Bottom Mount";"";
+"TraceParts.InstanceId";"90-06062020-0574422N3XX9WWY2MK673V115V3T3RA";"";
+"DESIGN";"Micro-USB B Receptacle SMT Bottom Mount";"";
+"TraceParts.PartStatus";"Published";"";
+"TraceParts.PartStatusId";"";"";
+"SUPPLIER";"Molex";"";
+"TraceParts.PartVersion";"1.0.0";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.ClassPath";"MOLEX:90-06062020-057442";"";
